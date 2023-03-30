@@ -2,4 +2,6 @@
     <string name="app_name">btl_app_android</string>
     <string name="desc_get_started">Let\'s make a delicious dish with\nthe best recipe for the family</string>
     <string name="title_get_started">Cooking Experience\nLike a Chef</string>
+    <string name="get_started">Get Started</string>
+    <string name="bg_image">bg_image</string>
 </resources>
