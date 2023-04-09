@@ -17,10 +17,10 @@ class NavBarMainAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) 
             0 -> {
                 HomePage()
             }
-            2 -> {
+            1 -> {
                 BookmarkPage()
             }
-            3 -> {
+            2 -> {
                 ShoppingPage()
             }
             else -> {
