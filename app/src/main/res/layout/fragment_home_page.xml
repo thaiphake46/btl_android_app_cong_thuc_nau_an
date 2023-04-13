@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="#FBF7F7"
     android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center_horizontal"
+
     tools:context=".MainActivity">
 
 
@@ -33,7 +36,7 @@
         android:layout_width="216dp"
         android:layout_height="68dp"
         android:layout_weight="1"
-        android:background="#FFFFFF"
+        android:background="@drawable/editview"
         android:drawableLeft="@drawable/baseline_search_24"
         android:hint="Search Destination"
 
@@ -45,26 +48,30 @@
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.236"
+        />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="91dp"
-        android:layout_height="71dp"
 
-        android:src="@drawable/_png"
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="69dp"
+        android:layout_height="67dp"
+        android:src="@drawable/list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.24"
+        app:riv_corner_radius="16dp">
+
+    </com.makeramen.roundedimageview.RoundedImageView>
+
 
     <Button
         android:id="@+id/button"
         android:layout_width="85dp"
         android:layout_height="38dp"
-        android:background="@color/white"
+        android:background="@drawable/all"
         android:text="All"
         android:textColor="#817E7E"
         android:textSize="18dp"
@@ -79,7 +86,7 @@
         android:id="@+id/button2"
         android:layout_width="85dp"
         android:layout_height="38dp"
-        android:background="@color/white"
+        android:background="@drawable/all"
         android:text="Sushi"
 
         android:textColor="#817E7E"
@@ -96,7 +103,7 @@
         android:id="@+id/button3"
         android:layout_width="85dp"
         android:layout_height="38dp"
-        android:background="@color/white"
+        android:background="@drawable/all"
         android:text="Burger"
         android:textColor="#817E7E"
 
@@ -109,16 +116,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.351" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="400dp"
+
+    <com.makeramen.roundedimageview.RoundedImageView
+
+        android:layout_width="348dp"
         android:layout_height="400dp"
+        android:src="@drawable/hjkjhk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849"
-        app:srcCompat="@drawable/hjkjhk" />
+        app:layout_constraintVertical_bias="0.9"
+        app:riv_corner_radius="16dp">
+
+
+    </com.makeramen.roundedimageview.RoundedImageView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
