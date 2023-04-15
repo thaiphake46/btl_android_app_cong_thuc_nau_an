@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBF7F7"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp"
-    android:gravity="center_horizontal"
-
     tools:context=".MainActivity">
-
 
     <TextView
         android:id="@+id/textView"
@@ -23,7 +21,6 @@
         android:textColor="@android:color/black"
         android:textSize="33dp"
         android:textStyle="normal|bold|italic"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
@@ -39,7 +36,6 @@
         android:background="@drawable/editview"
         android:drawableLeft="@drawable/baseline_search_24"
         android:hint="Search Destination"
-
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="#CDCBCB"
@@ -48,9 +44,7 @@
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236"
-        />
-
+        app:layout_constraintVertical_bias="0.236" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:layout_width="69dp"
@@ -62,10 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.24"
-        app:riv_corner_radius="16dp">
-
-    </com.makeramen.roundedimageview.RoundedImageView>
-
+        app:riv_corner_radius="16dp"></com.makeramen.roundedimageview.RoundedImageView>
 
     <Button
         android:id="@+id/button"
@@ -88,11 +79,8 @@
         android:layout_height="38dp"
         android:background="@drawable/all"
         android:text="Sushi"
-
         android:textColor="#817E7E"
         android:textSize="18dp"
-
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,19 +94,15 @@
         android:background="@drawable/all"
         android:text="Burger"
         android:textColor="#817E7E"
-
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.351" />
 
-
     <com.makeramen.roundedimageview.RoundedImageView
-
         android:layout_width="348dp"
         android:layout_height="400dp"
         android:src="@drawable/hjkjhk"
@@ -128,10 +112,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.9"
-        app:riv_corner_radius="16dp">
-
-
-    </com.makeramen.roundedimageview.RoundedImageView>
-
-
+        app:riv_corner_radius="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
