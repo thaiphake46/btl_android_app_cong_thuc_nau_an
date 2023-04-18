@@ -1,11 +1,5 @@
-package com.example.myapplication.models
+package com.example.btl_app_android.models
 
-import com.example.myapplication.models.Ingredient
-import com.example.myapplication.models.ExtendedIngredient
-import com.example.myapplication.models.AnalyzedInstruction
-import com.example.myapplication.models.Us
-import com.example.myapplication.models.Metric
-import com.example.myapplication.models.Measures
 import java.util.ArrayList
 
 class ExtendedIngredient {

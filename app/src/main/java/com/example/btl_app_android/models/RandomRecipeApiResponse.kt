@@ -1,4 +1,4 @@
-package com.example.myapplication.models
+package com.example.btl_app_android.models
 
 import java.util.ArrayList
 

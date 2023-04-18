@@ -1,11 +1,4 @@
-package com.example.myapplication.models
-
-import com.example.myapplication.models.Ingredient
-import com.example.myapplication.models.ExtendedIngredient
-import com.example.myapplication.models.AnalyzedInstruction
-import com.example.myapplication.models.Us
-import com.example.myapplication.models.Metric
-import com.example.myapplication.models.Measures
+package com.example.btl_app_android.models
 
 class Metric {
     var amount = 0.0
