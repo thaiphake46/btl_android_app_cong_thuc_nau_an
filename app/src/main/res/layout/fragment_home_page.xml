@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find Best Recipe\nFor Cooking"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/editview"
-            android:drawableStart="@drawable/search_24px"
-            android:ems="10"
-            android:hint="Search Destination"
-            android:inputType="text"
-            android:minHeight="65dp"
-            android:padding="10dp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/search_manage_style" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_random"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="4dp">
+            android:layout_height="wrap_content"
+            android:text="@string/find_best_recipe_nfor_cooking"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/editview"
+                android:drawableStart="@drawable/search_24px"
+                android:ems="10"
+                android:hint="@string/search_destination"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/search_manage_style" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_random"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

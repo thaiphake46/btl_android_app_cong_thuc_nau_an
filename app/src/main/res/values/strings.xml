@@ -8,4 +8,6 @@
     <string name="todo">TODO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_destination">Search Destination</string>
+    <string name="find_best_recipe_nfor_cooking">Find Best Recipe\nFor Cooking</string>
 </resources>
