@@ -1,0 +1,29 @@
+<resources>
+    <string-array name="tags">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>dessert</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
+    </string-array>
+    <string name="app_name">btl_app_android</string>
+    <string name="desc_get_started">Let\'s make a delicious dish with\nthe best recipe for the family</string>
+    <string name="title_get_started">Cooking Experience\nLike a Chef</string>
+    <string name="get_started">Get Started</string>
+    <string name="bg_image">bg_image</string>
+    <string name="api_key">f666c511c0e24a23a2c13971a9f93070</string>
+    <string name="todo">TODO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_destination">Search Destination</string>
+    <string name="find_best_recipe_nfor_cooking">Find Best Recipe\nFor Cooking</string>
+</resources>
