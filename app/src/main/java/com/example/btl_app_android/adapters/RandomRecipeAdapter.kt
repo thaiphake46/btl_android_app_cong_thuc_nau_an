@@ -13,7 +13,11 @@ import com.example.btl_app_android.R
 import com.example.btl_app_android.models.Recipe
 import com.squareup.picasso.Picasso
 
+<<<<<<< HEAD
 class RandomRecipeAdapter(var context: Context, var list: List<Recipe>) :
+=======
+class RandomRecipeAdapter(var context: Context, private var list: List<Recipe>) :
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
     RecyclerView.Adapter<RandomRecipeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RandomRecipeViewHolder {
         return RandomRecipeViewHolder(

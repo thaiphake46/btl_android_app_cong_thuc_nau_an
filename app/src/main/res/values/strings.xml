@@ -22,6 +22,25 @@
     <string name="bg_image">bg_image</string>
     <string name="api_key">f666c511c0e24a23a2c13971a9f93070</string>
     <string name="todo">TODO</string>
+<<<<<<< HEAD
+=======
+    <string-array name="tags">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>dessert</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
+    </string-array>
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_destination">Search Destination</string>

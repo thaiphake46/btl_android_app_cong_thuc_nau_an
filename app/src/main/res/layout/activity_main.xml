@@ -15,12 +15,20 @@
         app:layout_constraintBottom_toTopOf="@+id/navbarMain"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+<<<<<<< HEAD
+=======
+        android:layout_marginBottom="46dp"
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/navbarMain"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
+=======
+        android:layout_height="46dp"
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent">

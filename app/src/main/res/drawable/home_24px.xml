@@ -9,6 +9,10 @@
 <!--        android:endColor="#38f9d7"-->
 <!--        android:startColor="#43e97b" />-->
     <path
+<<<<<<< HEAD
         android:fillColor="#11680b"
+=======
+        android:fillColor="@color/black"
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
         android:pathData="M160,840L160,360L480,120L800,360L800,840L560,840L560,560L400,560L400,840L160,840Z" />
 </vector>

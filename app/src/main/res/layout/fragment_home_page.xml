@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
 
     <Button
         android:id="@+id/button5"
@@ -120,3 +125,78 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".mainFragment.HomePage">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/find_best_recipe_nfor_cooking"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/editview"
+                android:drawableStart="@drawable/search_24px"
+                android:ems="10"
+                android:hint="@string/search_destination"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/search_manage_style" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/ln_RclTags"
+            android:layout_height="60dp">
+
+<!--            <TextView-->
+<!--                android:id="@+id/recycler_tags"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:text="" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_random"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+>>>>>>> 0ed9da0bad01169526f61ccbca536d58be8a8506
