@@ -45,7 +45,8 @@ class RequestManager(private var context: Context) {
     private interface CallRanDomRecipes {
         @GET("recipes/random")
         fun callRanDomRecipe(
-            @Query("apiKey") apiKey: String, @Query("number") number: String
+            @Query("apiKey") apiKey: String,
+            @Query("number") number: String
         ): Call<RandomRecipeApiResponse>
     }
 }
