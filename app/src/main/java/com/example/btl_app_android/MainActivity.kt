@@ -24,13 +24,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var randomRecipeAdapter: RandomRecipeAdapter
     lateinit var recyclerView: RecyclerView
     lateinit var builderDialog: ProgressDialog
+    var tagTypeGetRecipe: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         navBar()
-        renderListRecipe()
+        renderListRecipe(tagTypeGetRecipe)
     }
 
     private fun tagsRecipe() {
@@ -42,19 +43,24 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        val adapter = TagsAdapter(tagsType, object : RvTagsInterface {
+        val adapter = TagsAdapter(this@MainActivity, tagsType, object : RvTagsInterface {
             override fun onCLickTag(pos: Int) {
-                Toast.makeText(this@MainActivity, tagsType[pos], Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@MainActivity, tagsType[pos], Toast.LENGTH_SHORT).show()
+                tagTypeGetRecipe = tagsType[pos]
+                if (pos == 0) {
+                    tagTypeGetRecipe = ""
+                }
+                renderListRecipe(tagTypeGetRecipe)
             }
         })
         recycler_tags.adapter = adapter
     }
 
-    private fun renderListRecipe() {
+    private fun renderListRecipe(tagType: String) {
         builderDialog = ProgressDialog(this, "Loading ...")
         builderDialog.show()
         manager = RequestManager(this)
-        manager.getRandomRecipe(randomRecipeResponseListener)
+        manager.getRandomRecipe(randomRecipeResponseListener, tagType)
     }
 
     private fun navBar() {

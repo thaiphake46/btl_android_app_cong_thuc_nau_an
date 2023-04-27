@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:background="@drawable/button_tag"
+        android:background="@drawable/button_tag_dis"
         android:padding="12dp"
         android:textColor="#B3BBD2"
         android:textSize="18sp" />

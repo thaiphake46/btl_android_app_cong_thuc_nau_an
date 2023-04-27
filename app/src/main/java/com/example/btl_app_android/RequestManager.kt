@@ -18,12 +18,12 @@ class RequestManager(private var context: Context) {
         Retrofit.Builder().baseUrl(urlApi).addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    fun getRandomRecipe(listener: RandomRecipeResponseListener) {
+    fun getRandomRecipe(listener: RandomRecipeResponseListener, tags: String) {
         val apiKey = context.getString(R.string.api_key)
         val number = "10"
 
         val callRanDomRecipes: CallRanDomRecipes = retrofit.create(CallRanDomRecipes::class.java)
-        val call: Call<RandomRecipeApiResponse> = callRanDomRecipes.callRanDomRecipe(apiKey, number)
+        val call: Call<RandomRecipeApiResponse> = callRanDomRecipes.callRanDomRecipe(apiKey, number, tags)
         call.enqueue(object : Callback<RandomRecipeApiResponse> {
             override fun onResponse(
                 call: Call<RandomRecipeApiResponse>,
@@ -45,7 +45,9 @@ class RequestManager(private var context: Context) {
     private interface CallRanDomRecipes {
         @GET("recipes/random")
         fun callRanDomRecipe(
-            @Query("apiKey") apiKey: String, @Query("number") number: String
+            @Query("apiKey") apiKey: String,
+            @Query("number") number: String,
+            @Query("tags") tags: String
         ): Call<RandomRecipeApiResponse>
     }
 }
