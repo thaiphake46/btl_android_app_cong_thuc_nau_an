@@ -1,5 +1,6 @@
 package com.example.btl_app_android
 
+import android.content.Intent
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.example.btl_app_android.dialogs.ProgressDialog
 import com.example.btl_app_android.mainFragment.NavBarMainAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.example.btl_app_android.listeners.RandomRecipeResponseListener
+import com.example.btl_app_android.listeners.RecipeClickListener
 import com.example.btl_app_android.models.RandomRecipeApiResponse
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
@@ -192,7 +194,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView = findViewById(R.id.recycler_random)
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 1)
-            randomRecipeAdapter = RandomRecipeAdapter(this@MainActivity, response!!.recipes!!)
+            randomRecipeAdapter = RandomRecipeAdapter( this@MainActivity, response!!.recipes!!,recipeClickListener)
             recyclerView.adapter = randomRecipeAdapter
             builderDialog.dismiss()
         }
@@ -201,4 +203,17 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
         }
     }
+
+    private val recipeClickListener = object : RecipeClickListener {
+        override fun onRecipeClicked(id: String) {
+            Toast.makeText(this@MainActivity, id, Toast.LENGTH_SHORT).show()
+//            val gotoDetailActivity = Intent(this, RecipeDetailActivity::class.java)
+//            startActivity(gotoDetailActivity)
+            startActivity(
+                Intent(this@MainActivity, RecipeDetailActivity::class.java)
+                    .putExtra("id", id)
+            )
+        }
+    }
+
 }
