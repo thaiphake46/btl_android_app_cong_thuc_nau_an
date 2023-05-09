@@ -3,9 +3,11 @@ package com.example.btl_app_android
 import android.content.Context
 import com.example.btl_app_android.listeners.DetailsRecipeListener
 import com.example.btl_app_android.listeners.RandomRecipeResponseListener
+import com.example.btl_app_android.listeners.SimilarRecipeListener
 
 import com.example.btl_app_android.models.RandomRecipeApiResponse
 import com.example.btl_app_android.models.RecipeDetailsResponse
+import com.example.btl_app_android.models.SimilarRecipesResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -70,6 +72,30 @@ class RequestManager(private var context: Context) {
         })
     }
 
+    fun getSimilarRecipes(listener: SimilarRecipeListener, id: String) {
+        val apiKey = context.getString(R.string.api_key)
+        val number: String = "4"
+        val callSimilarRecipes: CallSimilarRecipes = retrofit.create(CallSimilarRecipes::class.java)
+        val call: Call<List<SimilarRecipesResponse>> =
+            callSimilarRecipes.callSimilarRecipes(id, number, apiKey)
+        call.enqueue(object : Callback<List<SimilarRecipesResponse>> {
+            override fun onResponse(
+                call: Call<List<SimilarRecipesResponse>>,
+                response: Response<List<SimilarRecipesResponse>>
+            ) {
+                if (!response.isSuccessful) {
+                    listener.didError(response.message())
+                    return
+                }
+                listener.didFetch(response.body(), response.message())
+            }
+
+            override fun onFailure(call: Call<List<SimilarRecipesResponse>>, t: Throwable) {
+                listener.didError((t.message))
+            }
+        })
+    }
+
     private interface CallRecipeDetails {
         @GET("recipes/{id}/information")
         fun callRecipeDetails(
@@ -85,5 +111,14 @@ class RequestManager(private var context: Context) {
             @Query("number") number: String,
             @Query("tags") tags: String
         ): Call<RandomRecipeApiResponse>
+    }
+
+    private interface CallSimilarRecipes {
+        @GET("recipes/{id}/similar")
+        fun callSimilarRecipes(
+            @Path("id") id: String,
+            @Query("number") number: String,
+            @Query("apiKey") apiKey: String
+        ): Call<List<SimilarRecipesResponse>>
     }
 }
