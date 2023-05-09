@@ -73,8 +73,8 @@ class RequestManager(private var context: Context) {
     private interface CallRecipeDetails {
         @GET("recipes/{id}/information")
         fun callRecipeDetails(
-            @Query("apiKey") apiKey: String,
             @Path("id") id: String,
+            @Query("apiKey") apiKey: String,
         ): Call<RecipeDetailsResponse>
     }
 
