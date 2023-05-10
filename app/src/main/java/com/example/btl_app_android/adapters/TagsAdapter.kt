@@ -21,24 +21,25 @@ class TagsAdapter(
         val txt_tag = itemView.findViewById<TextView>(R.id.txt_tag)
     }
 
+    companion object {
+        var selectedPosition: Int = 0;
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.tag_item, parent, false)
         return ItemViewHolder(view)
     }
 
-    var selectPos: Int = 0
-
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.txt_tag.text = tags[position]
 
-        holder.itemView.setOnClickListener {
+        holder.txt_tag.setOnClickListener {
             onCLickTags.onCLickTag(position)
-            selectPos = holder.adapterPosition
-            notifyDataSetChanged()
+            selectedPosition = position
         }
 
-        if (position != selectPos) {
+        if (position == selectedPosition) {
             holder.txt_tag.background =
                 ContextCompat.getDrawable(context, R.drawable.button_tag_enb)
             holder.txt_tag.setTextColor(Color.WHITE)

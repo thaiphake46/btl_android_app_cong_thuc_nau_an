@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         )
         val adapter = TagsAdapter(this@MainActivity, tagsType, object : RvTagsInterface {
             override fun onCLickTag(pos: Int) {
-//                Toast.makeText(this@MainActivity, tagsType[pos], Toast.LENGTH_SHORT).show()
                 tagTypeGetRecipe = tagsType[pos]
                 if (pos == 0) {
                     tagTypeGetRecipe = ""
@@ -194,7 +193,8 @@ class MainActivity : AppCompatActivity() {
             recyclerView = findViewById(R.id.recycler_random)
             recyclerView.setHasFixedSize(true)
             recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 1)
-            randomRecipeAdapter = RandomRecipeAdapter( this@MainActivity, response!!.recipes!!,recipeClickListener)
+            randomRecipeAdapter =
+                RandomRecipeAdapter(this@MainActivity, response!!.recipes!!, recipeClickListener)
             recyclerView.adapter = randomRecipeAdapter
             builderDialog.dismiss()
         }
@@ -213,5 +213,4 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
-
 }
