@@ -2,8 +2,10 @@ package com.example.btl_app_android
 
 import android.content.Context
 import com.example.btl_app_android.listeners.DetailsRecipeListener
+import com.example.btl_app_android.listeners.InstructionsListener
 import com.example.btl_app_android.listeners.RandomRecipeResponseListener
 import com.example.btl_app_android.listeners.SimilarRecipeListener
+import com.example.btl_app_android.models.InstructionsRecipeResponse
 
 import com.example.btl_app_android.models.RandomRecipeApiResponse
 import com.example.btl_app_android.models.RecipeDetailsResponse
@@ -96,6 +98,29 @@ class RequestManager(private var context: Context) {
         })
     }
 
+    fun getInstructions(listener: InstructionsListener, id: String) {
+        val apiKey = context.getString(R.string.api_key)
+        val callInstructions: CallInstructions = retrofit.create(CallInstructions::class.java)
+        val call: Call<List<InstructionsRecipeResponse>> =
+            callInstructions.callInstructions(id, apiKey)
+        call.enqueue(object : Callback<List<InstructionsRecipeResponse>> {
+            override fun onResponse(
+                call: Call<List<InstructionsRecipeResponse>>,
+                response: Response<List<InstructionsRecipeResponse>>
+            ) {
+                if (!response.isSuccessful) {
+                    listener.didError(response.message())
+                }
+                listener.didFetch(response.body(), response.message())
+            }
+
+            override fun onFailure(call: Call<List<InstructionsRecipeResponse>>, t: Throwable) {
+                listener.didError(t.message)
+            }
+
+        })
+    }
+
     private interface CallRecipeDetails {
         @GET("recipes/{id}/information")
         fun callRecipeDetails(
@@ -120,5 +145,13 @@ class RequestManager(private var context: Context) {
             @Query("number") number: String,
             @Query("apiKey") apiKey: String
         ): Call<List<SimilarRecipesResponse>>
+    }
+
+    private interface CallInstructions {
+        @GET("recipes/{id}/analyzedInstructions")
+        fun callInstructions(
+            @Path("id") id: String,
+            @Query("apiKey") apiKey: String
+        ): Call<List<InstructionsRecipeResponse>>
     }
 }

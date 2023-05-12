@@ -9,11 +9,14 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.btl_app_android.adapters.IngredientsAdapter
+import com.example.btl_app_android.adapters.InstructionsAdapter
 import com.example.btl_app_android.adapters.SimilarRecipeAdapter
 import com.example.btl_app_android.dialogs.ProgressDialog
 import com.example.btl_app_android.listeners.DetailsRecipeListener
+import com.example.btl_app_android.listeners.InstructionsListener
 import com.example.btl_app_android.listeners.RecipeClickListener
 import com.example.btl_app_android.listeners.SimilarRecipeListener
+import com.example.btl_app_android.models.InstructionsRecipeResponse
 import com.example.btl_app_android.models.RecipeDetailsResponse
 import com.example.btl_app_android.models.SimilarRecipesResponse
 import com.squareup.picasso.Picasso
@@ -33,6 +36,8 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     lateinit var similarRecipeAdapter: SimilarRecipeAdapter
 
+    lateinit var recycler_meal_instructions: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_detail)
@@ -42,6 +47,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         manager = RequestManager(this)
         manager.getDetailsRecipe(recipeDetailsListener, id)
         manager.getSimilarRecipes(similarRecipeListener, id)
+        manager.getInstructions(instructionsListener, id)
         builderDialog = ProgressDialog(this, "Loading ...")
         builderDialog.show()
     }
@@ -52,8 +58,8 @@ class RecipeDetailActivity : AppCompatActivity() {
         imageView_meal_image = findViewById(R.id.imageView_meal_image)
         textView_meal_summary = findViewById(R.id.textView_meal_summary)
         recycler_meal_ingredients = findViewById(R.id.recycler_meal_ingredients)
-
         recycler_meal_similar = findViewById(R.id.recycler_meal_similar)
+        recycler_meal_instructions = findViewById(R.id.recycler_meal_instructions)
     }
 
     private val recipeDetailsListener = object : DetailsRecipeListener {
@@ -103,12 +109,27 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     private val recipeClickListener = object : RecipeClickListener {
         override fun onRecipeClicked(id: String) {
-//            Toast.makeText(this@RecipeDetailActivity, id, Toast.LENGTH_SHORT).show()
             startActivity(
                 Intent(this@RecipeDetailActivity, RecipeDetailActivity::class.java)
                     .putExtra("id", id)
             )
         }
+    }
 
+    private val instructionsListener = object : InstructionsListener {
+        override fun didFetch(response: List<InstructionsRecipeResponse>?, message: String?) {
+            recycler_meal_instructions.setHasFixedSize(true)
+            recycler_meal_instructions.layoutManager = LinearLayoutManager(
+                this@RecipeDetailActivity,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+            val instructionsAdapter = InstructionsAdapter(this@RecipeDetailActivity, response!!)
+            recycler_meal_instructions.adapter = instructionsAdapter
+        }
+
+        override fun didError(message: String?) {
+            Toast.makeText(this@RecipeDetailActivity, message, Toast.LENGTH_LONG).show()
+        }
     }
 }
