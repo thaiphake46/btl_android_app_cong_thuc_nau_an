@@ -3,6 +3,7 @@ package com.example.btl_app_android
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -30,12 +31,9 @@ class RecipeDetailActivity : AppCompatActivity() {
     lateinit var recycler_meal_similar: RecyclerView
     lateinit var recycler_meal_ingredients: RecyclerView
     lateinit var ingredientsAdapter: IngredientsAdapter
-
     lateinit var manager: RequestManager
     lateinit var builderDialog: ProgressDialog
-
     lateinit var similarRecipeAdapter: SimilarRecipeAdapter
-
     lateinit var recycler_meal_instructions: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +65,7 @@ class RecipeDetailActivity : AppCompatActivity() {
             builderDialog.dismiss()
             textView_meal_name.text = response!!.title
             textView_meal_source.text = response.sourceName
-            textView_meal_summary.text = response.summary
+            textView_meal_summary.text = Html.fromHtml(response.summary)
             Picasso.get().load(response.image).into(imageView_meal_image)
 
             recycler_meal_ingredients.setHasFixedSize(true)

@@ -206,7 +206,6 @@ class MainActivity : AppCompatActivity() {
 
     private val recipeClickListener = object : RecipeClickListener {
         override fun onRecipeClicked(id: String) {
-            Toast.makeText(this@MainActivity, id, Toast.LENGTH_SHORT).show()
             startActivity(
                 Intent(this@MainActivity, RecipeDetailActivity::class.java)
                     .putExtra("id", id)
