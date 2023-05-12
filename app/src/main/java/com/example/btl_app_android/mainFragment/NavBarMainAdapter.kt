@@ -1,6 +1,5 @@
 package com.example.btl_app_android.mainFragment
 
-import android.icu.text.IDNA.Info
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
