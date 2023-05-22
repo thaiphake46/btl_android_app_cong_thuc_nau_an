@@ -4,14 +4,16 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <Button
+    <TextView
         android:id="@+id/txt_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:background="@drawable/button_tag_dis"
+        android:minWidth="60dp"
         android:minHeight="48dp"
         android:padding="12dp"
+        android:textAlignment="center"
         android:textColor="#B3BBD2"
         android:textSize="20sp"
         android:textStyle="normal" />
